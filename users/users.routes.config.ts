@@ -14,6 +14,13 @@ export class UsersRoutes extends CommonRoutesConfig {
         .post((req: express.Request, res: express.Response) => {
             res.status(200).send(`Post to users`);
         })
+        this.app.route(`/users/:userId`)
+        .all((req: express.Request, res: express.Response, next: express.NextFunction) => {
+            // this middleware function runs before any request to /users/:userId
+            // but it doesn't accomplish anything just yet---
+            // it simply passes control to the next applicable function below using next()
+            next();
+        })
         return this.app;
     }
 
