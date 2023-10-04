@@ -24,6 +24,9 @@ export class UsersRoutes extends CommonRoutesConfig {
         .get((req: express.Request, res: express.Response) => {
             res.status(200).send(`GET requested for id ${req.params.userId}`);
         })
+        .put((req: express.Request, res: express.Response) => {
+            res.status(200).send(`PUT requested for id ${req.params.userId}`);
+        })
         return this.app;
     }
 
