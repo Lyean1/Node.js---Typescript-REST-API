@@ -21,6 +21,9 @@ export class UsersRoutes extends CommonRoutesConfig {
             // it simply passes control to the next applicable function below using next()
             next();
         })
+        .get((req: express.Request, res: express.Response) => {
+            res.status(200).send(`GET requested for id ${req.params.userId}`);
+        })
         return this.app;
     }
 
