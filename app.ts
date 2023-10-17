@@ -30,3 +30,10 @@ const loggerOptions: expressWinston.LoggerOptions = {
         winston.format.colorize({ all: true })
     ),
 };
+
+if (!process.env.DEBUG) {
+    loggerOptions.meta = false; // when not debugging, log requests as one-liners
+}
+
+// initialize the logger with the above configuration
+app.use(expressWinston.logger(loggerOptions));
