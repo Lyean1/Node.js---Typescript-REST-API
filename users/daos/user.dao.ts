@@ -16,3 +16,9 @@ class UsersDao {
 }
 
 export default new UsersDao();
+
+async addUser(user: CreateUserDto) {
+    user.id = shortid.generate();
+    this.users.push(user);
+    return user.id;
+}
