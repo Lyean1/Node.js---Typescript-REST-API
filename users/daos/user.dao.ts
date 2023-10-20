@@ -49,4 +49,10 @@ async patchUserById(userId: string, user: PatchUserDto) {
         'lastName',
         'permissionLevel',
     ];
-    
+    async removeUserById(userId: string) {
+        const objIndex = this.users.findIndex(
+            (obj: { id: string }) => obj.id === userId
+        );
+        this.users.splice(objIndex, 1);
+        return `${userId} removed`;
+    }
