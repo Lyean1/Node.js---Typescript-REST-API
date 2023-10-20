@@ -1,6 +1,9 @@
+import UsersDao from '../daos/users.dao';
+import { CRUD } from '../../common/interfaces/crud.interface';
 import { CreateUserDto } from '../dto/create.user.dto';
-import { PatchUserDto } from '../dto/patch.user.dto';
 import { PutUserDto } from '../dto/put.user.dto';
+import { PatchUserDto } from '../dto/patch.user.dto';
+
 
 import shortid from 'shortid';
 import debug from 'debug';
