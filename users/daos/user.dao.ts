@@ -49,3 +49,4 @@ async patchUserById(userId: string, user: PatchUserDto) {
         'lastName',
         'permissionLevel',
     ];
+    
