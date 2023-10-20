@@ -38,3 +38,14 @@ async putUserById(userId: string, user: PutUserDto) {
     this.users.splice(objIndex, 1, user);
     return `${user.id} updated via put`;
 }
+async patchUserById(userId: string, user: PatchUserDto) {
+    const objIndex = this.users.findIndex(
+        (obj: { id: string }) => obj.id === userId
+    );
+    let currentUser = this.users[objIndex];
+    const allowedPatchFields = [
+        'password',
+        'firstName',
+        'lastName',
+        'permissionLevel',
+    ];
