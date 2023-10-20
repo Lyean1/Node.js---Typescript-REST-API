@@ -78,3 +78,12 @@ async patchUserById(userId: string, user: PatchUserDto) {
         deleteById: (id: string) => Promise<string>;
         patchById: (id: string, resource: any) => Promise<string>;
     }
+    class UsersService implements CRUD {
+        async create(resource: CreateUserDto) {
+            return UsersDao.addUser(resource);
+        }
+    
+        async deleteById(id: string) {
+            return UsersDao.removeUserById(id);
+        }
+    
