@@ -22,3 +22,11 @@ async addUser(user: CreateUserDto) {
     this.users.push(user);
     return user.id;
 }
+
+async getUsers() {
+    return this.users;
+}
+
+async getUserById(userId: string) {
+    return this.users.find((user: { id: string }) => user.id === userId);
+}
