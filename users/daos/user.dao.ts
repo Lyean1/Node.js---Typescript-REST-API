@@ -95,3 +95,9 @@ async patchUserById(userId: string, user: PatchUserDto) {
                 const user = await usersService.readById(req.body.id);
                 res.status(200).send(user);
             }
+            async createUser(req: express.Request, res: express.Response) {
+                req.body.password = await argon2.hash(req.body.password);
+                const userId = await usersService.create(req.body);
+                res.status(201).send({ id: userId });
+            }
+        
