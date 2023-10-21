@@ -86,4 +86,9 @@ async patchUserById(userId: string, user: PatchUserDto) {
         async deleteById(id: string) {
             return UsersDao.removeUserById(id);
         }
-    
+        const log: debug.IDebugger = debug('app:users-controller');
+        class UsersController {
+            async listUsers(req: express.Request, res: express.Response) {
+                const users = await usersService.list(100, 0);
+                res.status(200).send(users);
+            }
