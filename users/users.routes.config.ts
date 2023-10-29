@@ -38,5 +38,4 @@ export class UsersRoutes extends CommonRoutesConfig {
     
         return this.app;
     }
-
 }
