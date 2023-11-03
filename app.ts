@@ -48,3 +48,11 @@ app.get('/', (req: express.Request, res: express.Response) => {
     res.status(200).send(runningMessage)
 });
 
+server.listen(port, () => {
+    routes.forEach((route: CommonRoutesConfig) => {
+        debugLog(`Routes configured for ${route.getName()}`);
+    });
+    // our only exception to avoiding console.log(), because we
+    // always want to know when the server is done starting up
+    console.log(runningMessage);
+});
